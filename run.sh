@@ -15,10 +15,17 @@ if [ -f "${ENV_FILE}" ]; then
     echo "INFO: loading '${ENV_FILE}'"
     export $(cat "${ENV_FILE}")
 fi
+PORT=${PORT:-4000}
+TMP_CONF=$(mktemp)
+
+PORT=${PORT} envsubst '\$PORT' < conf/default.conf > "${TMP_CONF}"
+
+echo "tmp file is ${TMP_CONF}"
+cat ${TMP_CONF}
 
 docker run \
-    --publish ${PORT:-4000}:80 \
+    --publish ${PORT}:${PORT} \
     --volume "$(pwd)/www:/usr/share/nginx/html" \
-    --volume "$(pwd)/conf/default.conf:/etc/nginx/conf.d/default.conf" \
+    --volume "${TMP_CONF}:/etc/nginx/conf.d/default.conf" \
     nginx
 
