@@ -1,0 +1,8 @@
+#
+# robots.txt for gitlab-proxy
+#
+# not meant for public use, so nothing should be indexed
+#
+
+User-Agent: *
+Disallow: /
