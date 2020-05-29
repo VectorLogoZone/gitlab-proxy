@@ -8,6 +8,10 @@ GitLab [does allow hotlinking](https://gitlab.com/gitlab-com/support-forum/-/iss
 
 It should have been simple, but for some unknown reason (probably caching conflicts), I needed to delete a lot more headers when running in production.
 
+## Running
+
+It is a standard `Dockerfile`.  The only tricky bit is getting the port to be configurable.  See the `run.sh` for the parameters I use to run locally for development.
+
 ## Credits
 
 [![Docker](https://www.vectorlogo.zone/logos/docker/docker-ar21.svg)](https://www.docker.com/ "Deployment")
@@ -26,10 +30,3 @@ curl --verbose https://gitlab.com/api/v4/projects/celebdor%2Fdesign/repository/f
 # raw subdirectory: content-disposition: attachment
 curl --verbose https://gitlab.com/celebdor/design/raw/master/logos/Samsung.svg
 ```
-
-## To Do
-
-- [ ] status.json
-- [ ] license
-- [ ] contributing
-- [ ] caching on the nginx server [docs](https://www.nginx.com/blog/nginx-caching-guide/).  Do I need this if CloudFlare is already caching?

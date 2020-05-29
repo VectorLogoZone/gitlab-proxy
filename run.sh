@@ -16,12 +16,20 @@ if [ -f "${ENV_FILE}" ]; then
     export $(cat "${ENV_FILE}")
 fi
 PORT=${PORT:-4000}
-TMP_CONF=$(mktemp)
 
-PORT=${PORT} envsubst '\$PORT' < conf/default.conf > "${TMP_CONF}"
+if [ -x "$(command -v envsubst)" ]; then
+	TMP_CONF=$(mktemp)
+	PORT=${PORT} envsubst '\$PORT' < conf/default.conf > "${TMP_CONF}"
+else
+	# running on mac
+	mkdir -p tmp
+	TMP_CONF="$(pwd)/tmp/default_with_port.conf"
+	PORT=${PORT} sed "s/\$PORT/${PORT}/g" conf/default.conf > "${TMP_CONF}"
+fi
 
-echo "tmp file is ${TMP_CONF}"
-cat ${TMP_CONF}
+
+echo "INFO: tmp file is ${TMP_CONF}"
+head ${TMP_CONF}
 
 docker run \
     --publish ${PORT}:${PORT} \
