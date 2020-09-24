@@ -18,8 +18,7 @@ It is a standard `Dockerfile`.  The only tricky bit is getting the port to be co
 [![Gitlab](https://www.vectorlogo.zone/logos/gitlab/gitlab-ar21.svg)](https://about.gitlab.com/ "Git Repositories")
 [![Google Cloud Run](https://www.vectorlogo.zone/logos/google/google-ar21.svg)](https://cloud.google.com/run/ "Hosting")
 [![nginx](https://www.vectorlogo.zone/logos/nginx/nginx-ar21.svg)](https://www.nginx.com/ "reverse-proxy webserver")
-
-- [water.css](https://watercss.netlify.app/)
+[![water.css](https://www.vectorlogo.zone/logos/netlifyapp_watercss/netlifyapp_watercss-ar21.svg)](https://watercss.netlify.app/ "Classless CSS")
 
 ## Tests
 
@@ -30,3 +29,11 @@ curl --verbose https://gitlab.com/api/v4/projects/celebdor%2Fdesign/repository/f
 # raw subdirectory: content-disposition: attachment
 curl --verbose https://gitlab.com/celebdor/design/raw/master/logos/Samsung.svg
 ```
+
+## To Do
+
+- [ ] send [canonical HTTP header](https://webmasters.googleblog.com/2011/06/supporting-relcanonical-http-headers.html)
+- [ ] cleanup 50x error page
+- [ ] is redirect.html ever used?
+- [ ] robots.txt: allow /index.html
+- [ ] switch to custom server using [fiber](https://github.com/gofiber/fiber/tree/master/middleware/proxy)
