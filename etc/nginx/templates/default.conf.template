@@ -52,5 +52,6 @@ server {
 		proxy_hide_header		content-disposition;
 		proxy_hide_header		set-cookie;
 		proxy_ignore_headers	set-cookie;
+		add_header				Link "<http://gitlab.com/$1>; rel=\"canonical\"";
 	}
 }

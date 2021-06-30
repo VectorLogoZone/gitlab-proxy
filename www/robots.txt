@@ -1,8 +1,9 @@
 #
 # robots.txt for gitlab-proxy
 #
-# not meant for public use, so nothing should be indexed
+# not meant for public use, so nothing besides the home page should be indexed
 #
 
 User-Agent: *
+Allow: /index.html
 Disallow: /

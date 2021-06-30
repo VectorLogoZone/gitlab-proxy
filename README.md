@@ -37,8 +37,6 @@ curl --verbose https://gitlab.com/celebdor/design/raw/master/logos/Samsung.svg
 
 ## To Do
 
-- [ ] send [canonical HTTP header](https://webmasters.googleblog.com/2011/06/supporting-relcanonical-http-headers.html)
 - [ ] cleanup 50x error page
 - [ ] is redirect.html ever used?
-- [ ] robots.txt: allow /index.html
 - [ ] switch to custom server using [fiber](https://github.com/gofiber/fiber/tree/master/middleware/proxy)
