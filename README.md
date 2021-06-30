@@ -1,5 +1,9 @@
 # GitLab SVG Proxy [<img alt="SVG Logo" src="https://www.vectorlogo.zone/logos/w3_svg/w3_svg-icon.svg" height="96" align="right"/>](https://logosear.ch/sources/index.html)
 
+[![build](https://github.com/VectorLogoZone/gitlab-proxy/actions/workflows/gcr-deploy.yaml/badge.svg)](https://github.com/VectorLogoZone/gitlab-proxy/actions/workflows/gcr-deploy.yaml)
+[![Status](https://img.shields.io/nodeping/status/qmiavw0i-cgpm-4ikv-8bao-e9bcyefr2kob.svg?style=flat)](https://nodeping.com/reports/checks/qmiavw0i-cgpm-4ikv-8bao-e9bcyefr2kob)
+[![30 day uptime](https://img.shields.io/nodeping/uptime/qmiavw0i-cgpm-4ikv-8bao-e9bcyefr2kob.svg?label=30-day%20uptime&style=flat)](https://nodeping.com/reports/uptime/qmiavw0i-cgpm-4ikv-8bao-e9bcyefr2kob)
+
 This server is a proxy to [GitLab](https://about.gitlab.com/) to serve SVG files.
 
 The problem with linking directly is with the HTTP headers.  GitLab sends `Content-Disposition: attachment`, which makes the browser try to download the image instead of displaying it.

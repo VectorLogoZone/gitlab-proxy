@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # run locally for dev
 #
@@ -17,23 +17,12 @@ if [ -f "${ENV_FILE}" ]; then
 fi
 PORT=${PORT:-4000}
 
-if [ -x "$(command -v envsubst)" ]; then
-	TMP_CONF=$(mktemp)
-	PORT=${PORT} envsubst '\$PORT' < conf/default.conf > "${TMP_CONF}"
-else
-	# running on mac
-	mkdir -p tmp
-	TMP_CONF="$(pwd)/tmp/default_with_port.conf"
-	PORT=${PORT} sed "s/\$PORT/${PORT}/g" conf/default.conf > "${TMP_CONF}"
-fi
-
-
-echo "INFO: tmp file is ${TMP_CONF}"
-head ${TMP_CONF}
+echo "INFO: running on port ${PORT}"
 
 docker run \
+	--env "PORT=${PORT}" \
     --publish ${PORT}:${PORT} \
     --volume "$(pwd)/www:/usr/share/nginx/html" \
-    --volume "${TMP_CONF}:/etc/nginx/conf.d/default.conf" \
+    --volume "$(pwd)/etc/nginx/templates:/etc/nginx/templates" \
     nginx
 

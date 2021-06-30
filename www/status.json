@@ -1,1 +1,1 @@
-{ "success":true, "message":"OK", "commit": "$COMMIT", "lastmod": "$LASTMOD", "tech": "$TECH" }
+{ "success":true, "message":"OK", "commit": "$COMMIT", "lastmod": "$LASTMOD", "boot": "(unknown)", "tech": "$TECH" }
